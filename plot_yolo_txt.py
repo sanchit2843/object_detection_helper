@@ -1,6 +1,7 @@
 import os
 import cv2
 import argparse
+from utils.util import split_line_yolo
 
 
 def plot_image(image, boxes):
@@ -17,13 +18,6 @@ def plot_image(image, boxes):
             thickness=2,
         )
     return image
-
-
-def split_line_yolo(line):
-    line = line.split(" ")
-    path = line[0]
-    boxes = [[int(y) for y in x.split(",")] for x in line[1:]]
-    return path, boxes
 
 
 if __name__ == "__main__":
